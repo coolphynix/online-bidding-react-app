@@ -1,0 +1,21 @@
+/* style.css */
+
+div.boxDiv {
+    /*position: absolute;
+    top: 0;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.3;*/
+    gutter:10;
+    margin-bottom: 10px;
+}
+
+/*.biddingSpan{
+	color: rgb(128, 128, 128);
+    top: 50%;
+    position: absolute;
+    left: 25%;
+    display: none;
+}*/
