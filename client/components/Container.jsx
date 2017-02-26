@@ -3,7 +3,7 @@
 */
 import React from 'react';
 import Box from './Box.jsx';
-import Masonry from 'masonry-layout';
+// import Masonry from 'masonry-layout';
 
 export default class Container extends React.Component {
 	
@@ -20,9 +20,17 @@ export default class Container extends React.Component {
 
 
     return (
-	     <div className="grid" style={style} data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 250 }'>     	
-     	{namesList}
-     </div>);
-
+    		<div className="container">
+	    		<div className="row">
+	                <div className="col-md-12 section-title">
+	                    <h2>Painting gallery</h2>
+	                </div> 
+	            </div> 
+		    	<div className="row">
+		    		{namesList}
+		    	</div>
+		    </div>	
+    		     
+	     );
   }
 }

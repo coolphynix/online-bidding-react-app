@@ -4,8 +4,8 @@
 import React from 'react';
 
 function LatestBidComponent(props){
-
-	return <div><span>Rs. {props.highestBid}</span></div>;
+	
+	return <span className="price">Latest Bid: Rs.{props.highestBid}</span>;
 
 }
 
@@ -50,14 +50,18 @@ class Clock extends React.Component {
 
 	render(){
 
+		const h5Style={
+			marginBottom: "20px"
+		};
+
 		if(this.state.timeRemaining >= 0){
 			return (
-				<span className="biddingSpan"> {this.state.timeRemaining} seconds remaining </span>
+				<h5 style={h5Style}><a href="#">{this.state.timeRemaining} seconds remaining </a></h5>
 			);
 		}else{
 
 			return (
-				<span className="biddingSpan"> Bidding closed </span>
+				<h5 style={h5Style}><a href="#">Bidding closed</a></h5>				
 			);
 		}
 
@@ -89,12 +93,26 @@ export default class Timer extends React.Component {
 
 	render() {	
 
+		const bidNowButtonStyle = {
+			border: 0,
+    		outline: 0,
+    		padding: "6px",
+    		color: "rgb(255, 255, 255)",
+    		background: "rgb(42, 128, 185)"
+		};
+
+		const bidNowInputStyle = {
+			background: "rgb(255, 255, 255)",
+		    border: "1px solid rgb(221, 221, 221)",
+		    padding: "5px 20px"
+		};
+
 		if(this.state.toBeShown){
 
 			return (
 				<div>
 					<Clock bidStartTime={(new Date().getTime())} />
-					<LatestBidComponent highestBid={this.state.highestBid}/>
+					<LatestBidComponent highestBid={this.state.highestBid}/>										
 				</div>
 			);
 
@@ -102,8 +120,8 @@ export default class Timer extends React.Component {
 			
 			return (
 				<div>
-					<input type="text" id="bidNowInput" ref={(input) => { this.bidNowInput = input; }}/>
-					<button onClick={this.onClick}> Bid Now </button>
+					<input type="text" id="bidNowInput" style={bidNowInputStyle} placeholder="Your Bid Amount" ref={(input) => { this.bidNowInput = input; }}/>
+					<button style={bidNowButtonStyle} onClick={this.onClick}> Bid Now </button>
 					<LatestBidComponent highestBid={this.state.highestBid}/>
 				</div>
 			);
